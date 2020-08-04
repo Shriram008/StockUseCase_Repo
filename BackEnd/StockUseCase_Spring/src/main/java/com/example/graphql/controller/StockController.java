@@ -2,6 +2,9 @@ package com.example.graphql.controller;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +39,16 @@ public class StockController {
 
 	@RequestMapping(value = "/view")
 	public List<?> hello() {
-		return (List<?>) userRepository.findAll();
+		List<StockBean> activeStock= userRepository.findAll();
+		for ( StockBean s : activeStock) {
+			if (s.getQuantity()==0) {
+				activeStock.remove(s);
+			}
+		}
+		
+		activeStock.sort(Comparator.comparing(StockBean::getStockNumber));
+		
+		return (List<?>) activeStock;
 
 	}
 	
@@ -60,8 +72,9 @@ public class StockController {
 
 	}
 	
-	@RequestMapping(value = "/readByName/{name}")
+	@RequestMapping(value = "/searchByName/{name}")
 	public List<?> viewbyStockName(@PathVariable String name) {
+		System.out.println("The name inside controller"+name);
 		StockBean u1 = userRepository.findByNameEquals(name);
 		ArrayList<StockBean> u = new ArrayList<>();
 		u.add(u1);
