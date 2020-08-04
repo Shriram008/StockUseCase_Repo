@@ -160,7 +160,7 @@ export default class StockUpdate extends Component {
 
 
             <div style={{ marginTop: 10 }}>
-                <h3>Sign Up Portal  </h3>
+                <h3>Update Stock Values  </h3>
                 <form onSubmit={this.onSubmit}>
 
                 

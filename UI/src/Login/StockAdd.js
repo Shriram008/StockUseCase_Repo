@@ -68,24 +68,11 @@ export default class StockAddDetails extends Component {
     }
     
 
-    componentDidMount() {
-        axios.get('http://localhost:4000/ids/count')
-            .then(response => {
-                
-                this.setState({ 
-                    count: response.data+1
-                    
-                });
-                console.log(this.state.count)
-            })
-            .catch(function (error){
-                console.log(error);
-            })
-    }
+   
 
     onSubmit(e) {
         e.preventDefault();
-
+        console.log(this.props.history)
         
 
         const IDs = {
@@ -100,7 +87,7 @@ export default class StockAddDetails extends Component {
         axios.post('http://localhost:8080/Stock/signup/', IDs)
             .then(res => console.log(res.data));
 
-            this.props.history.push('/Stock');
+            this.props.history.push('/Stock/Home');
             
         this.setState({
             stockName: '',

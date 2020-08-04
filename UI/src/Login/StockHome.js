@@ -10,7 +10,7 @@ const ID = props => (
         <td>
         <Link to={"/Stock/read/"+props.incKey.id}>{props.incKey.stockName}</Link>
         </td>
-       
+        <td>{props.incKey.stockNumber}</td>
         {/* <td>dateFormat({props.incKey.INC_RaisedOn}, "dd-mm-yyyy")</td>  */}
         {/* <td><Moment format='DD-MM-YYYY'>{props.incKey.CreatedOn}</Moment></td> */}
         <td>{props.incKey.purchasingPrice}</td>
@@ -110,7 +110,7 @@ class StockHomePage extends React.Component {
                     <thead>
                         <tr>
                             <th>Stock Name</th>
-                            
+                            <th>Stock Number</th>
                              <th>Purchasing Price </th> 
                             <th>Quantity </th>
                             

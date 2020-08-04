@@ -4,7 +4,9 @@ import { Button, Container } from 'react-bootstrap';
 import StockAddDetails from "./StockAdd"
 import StockHomePage from "./StockHome"
 import ReadStock from "./StockView"
+import SearchStock from "./StockSearch"
 import StockUpdate from "./StockUpdate"
+import StockSearchFilter from "./SearchStockFilter"
 
  class FunctionalBar extends Component {
     render() {
@@ -39,6 +41,8 @@ import StockUpdate from "./StockUpdate"
           <Route path="/Stock/home" component={StockHomePage} />
           <Route path="/Stock/read/:id" component={ReadStock} /> 
           <Route path="/Stock/edit/:id" component={StockUpdate} />
+          <Route path="/Stock/search" component={StockSearchFilter} />
+          <Route path="/Stock/searchByName/:search" component={SearchStock} />
           
           
 
