@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
-
+import Moment from 'react-moment';
 import 'react-chat-widget/lib/styles.css';
 
 const INC = props => (
@@ -10,10 +10,11 @@ const INC = props => (
         <td>
         <Link to={"/Stock/read/"+props.incKey.id}>{props.incKey.stockName}</Link>
         </td>
-       
+        <td>{props.incKey.stockNumber}</td>
         {/* <td>dateFormat({props.incKey.INC_RaisedOn}, "dd-mm-yyyy")</td>  */}
         {/* <td><Moment format='DD-MM-YYYY'>{props.incKey.CreatedOn}</Moment></td> */}
         <td>{props.incKey.purchasingPrice}</td>
+        <td><Moment format='DD-MM-YYYY'>{props.incKey.purchasingDate}</Moment></td>
         <td>{props.incKey.quantity}</td>
 
         <td>
@@ -102,8 +103,9 @@ export default class SearchStockFilter extends Component {
                     <thead>
                         <tr>
                         <th>Stock Name</th>
-                            
+                        <th>Stock Number</th>
                             <th>Purchasing Price </th> 
+                            <th>Purchasing Date</th>
                            <th>Quantity </th>
                         </tr>
                     </thead>
